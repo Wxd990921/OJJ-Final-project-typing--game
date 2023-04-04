@@ -36,7 +36,38 @@ let characterTyped = 0;
 let current_quote = "";
 let quoteNo = 0;
 let timer = null;
-
+updateHtml();
+function saveData(accuracy,wordCount){
+  
+  if(localStorage.getItem('score')){
+    let scores = {
+        "accuracy": accuracy,
+        "wordCount": wordCount
+      }
+    let preScores = localStorage.getItem('score');
+       preScores = JSON.parse(preScores);
+       preScores.push(scores);
+       preScores?.sort((a, b) => (a.wordCount < b.wordCount ? 1 : -1))
+         localStorage.setItem('score',JSON.stringify(preScores));
+  }else{
+    let scores = [{
+        "accuracy": accuracy,
+        "wordCount": wordCount
+      }]
+    localStorage.setItem('score',JSON.stringify(scores));
+  }
+}
+function updateHtml(){
+    if(localStorage.getItem('score')){
+        scores =   localStorage.getItem('score');
+        scores = JSON.parse(scores);
+        let ScoresHtml = '';
+        for(let i=0; i<scores.length && i<9; i++){
+            ScoresHtml += "<li><span>#"+(i+1)+"</span><span>"+scores[i].wordCount+" words</span><span>"+scores[i].accuracy+"%</span></li>"
+        }
+        document.getElementById("scores").innerHTML = ScoresHtml
+    }
+}
 function updateQuote() {
   quote_text.textContent = null;
   current_quote = quotes_array[quoteNo];
@@ -125,6 +156,9 @@ function updateTimer() {
   }
   else {
     // finish the game
+    let totalAccuracy = document.querySelector(".curr_accuracy").innerText;
+    saveData(totalAccuracy,quoteNo);
+    updateHtml();
     finishGame();
   }
 }
@@ -170,12 +204,4 @@ function resetValues() {
   timer_text.textContent = timeLeft + 's';
   error_text.textContent = 0;
   restart_btn.style.display = "none";
-}
-
-document.getElementById('masking').style.display = "none";
-function standings() {
-    document.getElementById('masking').style.display = "";
-}
-function hidder() {
-    document.getElementById('masking').style.display = "none";
 }

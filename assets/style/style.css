@@ -94,37 +94,34 @@ body {
   box-shadow: #282828 3px 5px 3px;
 }
 
-.masking {
+#highScores{
   position: fixed;
-  left: 0px;
-  top: 0px;
-  background: #000;
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
+  
+  width: 250px;
+  right: 0;
+  top: 0;
+  min-height: 100vh;
+  background: rgb(119,25,131);
+
 }
 
-.popout {
-  position: relative;
-  background: #fff;
-  width: 50%;
-  height: 80%;
-  border-radius: 5px;
-  margin: 5% auto;
-}
-
-#popout-header {
-  height: 40px;
-}
-
-#header-right {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
-  background: red;
+#highScores h2 {
   color: #fff;
-  right: 5px;
-  top: 5px;
-  text-align: center;
+}
+
+#scores{
+  margin: 0;
+  padding: 0;
+}
+#scores li{
+  color: #1dbf73;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+
+}
+#scores li span{
+  width: 33.3%;
+
 }
