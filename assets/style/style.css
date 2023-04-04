@@ -84,3 +84,47 @@ body {
   border: 0px;
   box-shadow: #282828 3px 5px 3px;
 }
+
+.standings{
+  background-color: #e80d0d;
+  border-radius: 20%;
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 0px;
+  box-shadow: #282828 3px 5px 3px;
+}
+
+.masking {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.popout {
+  position: relative;
+  background: #fff;
+  width: 50%;
+  height: 80%;
+  border-radius: 5px;
+  margin: 5% auto;
+}
+
+#popout-header {
+  height: 40px;
+}
+
+#header-right {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background: red;
+  color: #fff;
+  right: 5px;
+  top: 5px;
+  text-align: center;
+}

@@ -37,5 +37,14 @@
       onfocus="startGame()"></textarea>
     <button class="restart_btn" onclick="resetValues()">Restart</button>
   </div>
+  <button type="button" onclick="standings()" class="standings">Check out the standings</button>
+  <div class="masking" id='masking'>
+      <div class="popout">
+          <div id="popout-header">
+              <span>Player standings</span>
+              <div id="header-right" onclick="hidder()">X</div>
+          </div>
+      </div>
+  </div>
 </body>
 </html>

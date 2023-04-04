@@ -171,3 +171,11 @@ function resetValues() {
   error_text.textContent = 0;
   restart_btn.style.display = "none";
 }
+
+document.getElementById('masking').style.display = "none";
+function standings() {
+    document.getElementById('masking').style.display = "";
+}
+function hidder() {
+    document.getElementById('masking').style.display = "none";
+}
